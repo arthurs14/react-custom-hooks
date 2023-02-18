@@ -10,14 +10,16 @@ const UserForm = ({ firstName, lastName, age, updateFields }: UserData) => {
         required
         type="text"
         value={firstName}
-        onChange={(e) => updateFields({ firstName: e.target.value })}
+        name="firstName"
+        onChange={(e) => updateFields({ [e.target.name]: e.target.value })}
       />
       <label htmlFor="lastName">Last Name</label>
       <input
         required
         type="text"
         value={lastName}
-        onChange={(e) => updateFields({ lastName: e.target.value })}
+        name="lastName"
+        onChange={(e) => updateFields({ [e.target.name]: e.target.value })}
       />
       <label htmlFor="age">Age</label>
       <input
@@ -25,7 +27,8 @@ const UserForm = ({ firstName, lastName, age, updateFields }: UserData) => {
         min={1}
         type="number"
         value={age}
-        onChange={(e) => updateFields({ age: e.target.value })}
+        name="age"
+        onChange={(e) => updateFields({ [e.target.name]: e.target.value })}
       />
     </FormWrapper>
   );

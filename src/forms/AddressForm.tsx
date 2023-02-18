@@ -8,13 +8,6 @@ const AddressForm = ({
   zip,
   updateFields,
 }: AddressData) => {
-  const updateFormData = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    name: string
-  ) => {
-    updateFields({ [name]: e.target.value });
-  };
-
   return (
     <FormWrapper title="Address">
       <label htmlFor="street">Street</label>
@@ -23,28 +16,32 @@ const AddressForm = ({
         required
         type="text"
         value={street}
-        onChange={(e) => updateFormData(e, 'street')}
+        name="street"
+        onChange={(e) => updateFields({ [e.target.name]: e.target.value })}
       />
       <label htmlFor="City">City</label>
       <input
         required
         type="text"
         value={city}
-        onChange={(e) => updateFormData(e, 'city')}
+        name="city"
+        onChange={(e) => updateFields({ [e.target.name]: e.target.value })}
       />
       <label htmlFor="State">State</label>
       <input
         required
         type="text"
         value={state}
-        onChange={(e) => updateFormData(e, 'state')}
+        name="state"
+        onChange={(e) => updateFields({ [e.target.name]: e.target.value })}
       />
       <label htmlFor="zip">Zip</label>
       <input
         required
         type="text"
         value={zip}
-        onChange={(e) => updateFormData(e, 'zip')}
+        name="zip"
+        onChange={(e) => updateFields({ [e.target.name]: e.target.value })}
       />
     </FormWrapper>
   );

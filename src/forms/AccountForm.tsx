@@ -2,10 +2,6 @@ import FormWrapper from '../components/FormWrapper';
 import { AccountData } from '../types/AccountFormProps';
 
 const AccountForm = ({ email, password, updateFields }: AccountData) => {
-  const updateForm = (e: React.ChangeEvent<HTMLInputElement>, name: string) => {
-    updateFields({ [name]: e.target.value });
-  };
-
   return (
     <FormWrapper title="Account">
       <label htmlFor="email">Email</label>
@@ -14,14 +10,16 @@ const AccountForm = ({ email, password, updateFields }: AccountData) => {
         required
         type="email"
         value={email}
-        onChange={(e) => updateForm(e, 'email')}
+        name="email"
+        onChange={(e) => updateFields({ [e.target.name]: e.target.value })}
       />
       <label htmlFor="password">Password</label>
       <input
         required
         type="password"
         value={password}
-        onChange={(e) => updateForm(e, 'password')}
+        name="password"
+        onChange={(e) => updateFields({ [e.target.name]: e.target.value })}
       />
     </FormWrapper>
   );
