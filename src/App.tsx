@@ -3,7 +3,7 @@ import useMultistepForm from './hooks/useMultistepForm';
 import UserForm from './forms/UserForm';
 import AddressForm from './forms/AddressForm';
 import AccountForm from './forms/AccountForm';
-import { FormData } from './types/Formdata';
+import { FormData } from './types/FormData';
 
 const INITIAL_DATA: FormData = {
   firstName: '',
@@ -18,7 +18,7 @@ const INITIAL_DATA: FormData = {
 };
 
 const App = () => {
-  const [data, setData] = useState(INITIAL_DATA);
+  const [data, setData] = useState<FormData>(INITIAL_DATA);
 
   const updateFields = (fields: Partial<FormData>) => {
     setData((prevState) => {
