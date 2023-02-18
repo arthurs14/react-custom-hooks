@@ -1,4 +1,5 @@
 import { FormEvent, useState } from 'react';
+import FormContainer from './components/FormContainer';
 import useMultistepForm from './hooks/useMultistepForm';
 import UserForm from './forms/UserForm';
 import AddressForm from './forms/AddressForm';
@@ -42,39 +43,53 @@ const App = () => {
   console.log(data);
 
   return (
-    <div
-      style={{
-        position: 'relative',
-        background: 'white',
-        border: '1px solid black',
-        padding: '2rem',
-        margin: '1rem',
-        borderRadius: '.5rem',
-        fontFamily: 'Arial',
-        maxWidth: 'max-content',
-      }}
-    >
-      <form onSubmit={onSubmit}>
-        <div style={{ position: 'absolute', top: '.5rem', right: '.5rem' }}>
-          {currentStepIndex + 1} / {steps.length}
-        </div>
-        {step}
-        <div
-          style={{
-            margin: '1rem',
-            display: 'flex',
-            gap: '.5rem',
-            justifyContent: 'flex-end',
-          }}
-        >
-          {!isFirstStep && (
-            <button type="button" onClick={back}>
-              Back
-            </button>
-          )}
-          <button type="submit">{isLastStep ? 'Finish' : 'Next'}</button>
-        </div>
-      </form>
+    <div>
+      <FormContainer>
+        <form onSubmit={onSubmit}>
+          <div style={{ position: 'absolute', top: '.5rem', right: '.5rem' }}>
+            {currentStepIndex + 1} / {steps.length}
+          </div>
+          {step}
+          <div
+            style={{
+              margin: '1rem',
+              display: 'flex',
+              gap: '.5rem',
+              justifyContent: 'flex-end',
+            }}
+          >
+            {!isFirstStep && (
+              <button type="button" onClick={back}>
+                Back
+              </button>
+            )}
+            <button type="submit">{isLastStep ? 'Finish' : 'Next'}</button>
+          </div>
+        </form>
+      </FormContainer>
+      <FormContainer>
+        <form onSubmit={onSubmit}>
+          <div style={{ position: 'absolute', top: '.5rem', right: '.5rem' }}>
+            {currentStepIndex + 1} / {steps.length}
+          </div>
+          {step}
+          <div
+            style={{
+              margin: '1rem',
+              display: 'flex',
+              gap: '.5rem',
+              justifyContent: 'flex-end',
+            }}
+          >
+            {!isFirstStep && (
+              <button type="button" onClick={back}>
+                Back
+              </button>
+            )}
+            <button type="submit">{isLastStep ? 'Finish' : 'Next'}</button>
+          </div>
+        </form>
+      </FormContainer>
     </div>
   );
 };
